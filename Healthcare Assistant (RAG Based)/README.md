@@ -188,6 +188,3 @@ This project uses **synthetic data** for demonstration and academic purposes onl
 
 ---
 
-## 📄 License
-
-Add your preferred license here (e.g. MIT).
