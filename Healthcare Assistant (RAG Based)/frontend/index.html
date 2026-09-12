@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Healthcare Assistant</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-heart">&#128154;</div>
+        <div>
+          <div class="brand-title">Healthcare<br>Assistant</div>
+          <div class="brand-subtitle">Your trusted health companion</div>
+        </div>
+      </div>
+
+      <div class="field-label">&#128273; Groq API Key</div>
+      <input id="apiKeyInput" type="password" placeholder="gsk_..." autocomplete="off" />
+      <div id="apiStatus" class="api-status not-connected">
+        <span class="api-dot"></span> Not connected
+      </div>
+
+      <div class="field-label">&#128100; Access Role</div>
+      <select id="roleSelect">
+        <option value="front_desk">Front Desk</option>
+        <option value="clinician">Clinician</option>
+        <option value="billing">Billing</option>
+        <option value="admin">Admin</option>
+      </select>
+      <div class="role-hint">Controls which patient-record fields you can see.</div>
+
+      <hr />
+
+      <div class="tip-card">
+        <div class="tip-head"><span class="tip-head-label">&#127807; Daily Health Tip</span></div>
+        <div class="tip-label">Hydration</div>
+        <div id="tipText" class="tip-text">Stay hydrated throughout the day.</div>
+        <div class="tip-dots"><span>&#9679;</span> &#9679; &#9679; &#9679;</div>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <div class="title-row">
+        <div class="title-icon">&#129658;</div>
+        <div class="main-title">Healthcare Assistant</div>
+      </div>
+      <div class="main-subtitle">How can I help you today?</div>
+
+      <div class="welcome-card">
+        <div class="welcome-inner">
+          <div class="welcome-icon">&#128172;</div>
+          <div>
+            <div class="welcome-card-title">Ask your question in plain English</div>
+            <p class="welcome-card-text">Ask about patient records, hospital policies, admissions, billing, medications, privacy or general health information.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="chatWindow" class="chat-window"></div>
+
+      <form id="chatForm" class="chat-input-row" autocomplete="off">
+        <input id="chatInput" type="text" placeholder="Ask a healthcare question..." />
+        <button type="submit" id="sendBtn">Send</button>
+      </form>
+
+      <div class="footer-caption">For demonstration and academic use with synthetic data. This assistant is not a substitute for professional medical advice.</div>
+    </main>
+
+  </div>
+
+  <template id="messageTemplate">
+    <div class="chat-message">
+      <div class="chat-avatar"></div>
+      <div class="chat-bubble">
+        <div class="escalation-banner" style="display:none"></div>
+        <div class="chat-content"></div>
+        <div class="safety-flags" style="display:none"></div>
+        <div class="recovery-card" style="display:none"></div>
+        <details class="extra-details" style="display:none">
+          <summary></summary>
+          <div class="extra-body"></div>
+        </details>
+        <div class="chat-meta">
+          <span class="chat-source"></span>
+          <span class="chat-confidence"></span>
+          <span class="chat-time"></span>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
